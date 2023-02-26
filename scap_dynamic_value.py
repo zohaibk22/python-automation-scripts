@@ -1,6 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-import time
 
 
 service = Service('/Users/zohaibkhan/Downloads/chromedriver')
@@ -22,20 +21,12 @@ def get_driver():
     return driver
 
 
-def clean_text(text):
-    """Extracts only the temperature from text
-    """
-    output = float(text.split(": ")[1])
-    return output
-
-
 def main():
     driver = get_driver()
-    time.sleep(2)
     # element = driver.find_element_by_xpath('/html/body/div[1]/div/h1[1]')
-    element = driver.find_element(by="xpath", value='/html/body/div[1]/div/h1[2]')
-    print(clean_text(element.text))
-    return clean_text(element.text)
+    element = driver.find_element(by="xpath", value='/html/body/div[1]/div/h1[1]')
+    print(element.text)
+    return element
 
 main()
 
